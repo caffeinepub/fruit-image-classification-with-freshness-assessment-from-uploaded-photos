@@ -1,0 +1,91 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Guided analysis progress, richer results, and clickable history interactions",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "summary": "Show a visible multi-step progress UI during analysis with clear disabled/loading states and retryable error handling.",
+      "acceptanceCriteria": [
+        "When the user clicks “Analyze Fruit”, the UI shows a multi-step progress indicator until analysis completes.",
+        "The “Analyze Fruit” button remains disabled while analyzing, and the progress UI is the primary feedback (not only a spinner).",
+        "If analysis fails, the progress UI stops and an error state is shown, with the user able to try again."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AnalysisProgress.tsx",
+          "operation": "create",
+          "description": "Create a reusable, step-based progress indicator component that can render a list of labeled steps with active/completed states and remains readable while the app is busy. Use shadcn-ui composed primitives (e.g., Card/Badge) where helpful. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add analysis-stage state management for a step-based progress model (e.g., current step index + status). Wire lifecycle: reset stages on new upload/reset; start staged progress on analyze click; stop progress on success/failure; ensure retry works by reinitializing progress state on subsequent attempts."
+        },
+        {
+          "path": "frontend/src/components/FruitImageUploader.tsx",
+          "operation": "modify",
+          "description": "Render the new AnalysisProgress component prominently while analyzing (primary feedback), and apply clear disabled states (Analyze disabled; prevent conflicting upload/reset interactions during analysis where appropriate). Continue using shadcn-ui Button/Card for consistent UI composition. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add a collapsed-by-default, keyboard-accessible “Details / How we decided” section that structures existing confidence and explanation fields.",
+      "acceptanceCriteria": [
+        "Results include a collapsed-by-default section that can be expanded/collapsed without re-running analysis.",
+        "The expanded section presents the existing result signals (fruit confidence, freshness confidence, freshness explanation) in a clearer breakdown than the current single paragraph.",
+        "The expanded/collapsed state has an obvious interactive affordance (button/chevron) and is keyboard accessible."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ResultsPanel.tsx",
+          "operation": "modify",
+          "description": "Add an expandable/collapsible “Details / How we decided” section (collapsed by default) that breaks out: fruit confidence, freshness confidence, and freshness explanation into structured rows (e.g., a definition list). Provide an obvious toggle control (button + chevron), with proper aria-expanded/aria-controls and keyboard operability. Use shadcn-ui Button/Badge/Card for composed UI (do not modify ui components). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Make history entries clickable and keyboard accessible to load a saved entry into the main active results view without re-analysis or requiring an uploaded image.",
+      "acceptanceCriteria": [
+        "Each history item is clearly clickable (hover/focus styling) and keyboard accessible.",
+        "Clicking a history item updates the main results panel and fruit info card to match the selected entry.",
+        "Loading a history item does not trigger the analyzer and does not require an uploaded image."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Introduce an 'active analysis result' selection flow that can be set from either a freshly analyzed image or a clicked history item. When selecting from history, set the active result directly (and render ResultsPanel + FruitInfoCard) without starting analysis and without requiring selectedFile/previewUrl."
+        },
+        {
+          "path": "frontend/src/components/HistoryPanel.tsx",
+          "operation": "modify",
+          "description": "Add an onSelectHistoryEntry callback prop and convert each history row into a semantic interactive control (e.g., a button) with hover/focus styles and keyboard activation (Enter/Space). On selection, pass the chosen entry up to App. Optionally add a visual 'active' style for the currently selected entry."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add small frontend utilities (or exported helper) to normalize/convert backend ResultEntry fields into the UI's AnalysisResult shape used by ResultsPanel/FruitInfoCard (including mapping fruit enum/value to the existing fruitType string), so HistoryPanel/App can set an active result consistently."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Improve uploader interactions by allowing click-anywhere dropzone file picking and clipboard image paste when no file is selected, preserving validation and existing error feedback.",
+      "acceptanceCriteria": [
+        "When no file is selected, clicking the dropzone (not only the button) opens the file chooser.",
+        "When no file is selected, pasting an image (Ctrl/Cmd+V) into the page/uploader loads it as the selected image and shows the preview.",
+        "These interactions preserve current validation rules (type and max size) and show existing validation errors when violated."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FruitImageUploader.tsx",
+          "operation": "modify",
+          "description": "Add a hidden file input ref and make the entire dropzone clickable to trigger the file picker when no file is selected (while preserving the existing Choose Image control). Add a paste handler (scoped to the component or global with safe cleanup) that, when no file is selected, reads an image from the clipboard and routes it through the existing validateFile/handleFile flow so type/size validation and error rendering remain consistent."
+        }
+      ]
+    }
+  ]
+}

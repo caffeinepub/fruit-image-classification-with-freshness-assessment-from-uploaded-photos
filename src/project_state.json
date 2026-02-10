@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build a fruit image classification app where users upload fruit images and the app returns the fruit type, related information, and a freshness assessment.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-ui-that-lets-a-user-upload-or-drag-and-drop-an-image-of-a-fruit-jpg-png-webp-shows-a-preview-and-provides-a-clear-call-to-action-to-run-classification",
+      "title": "Create a single-page UI that lets a user upload (or drag-and-drop) an image of a fruit (JPG/PNG/WebP), shows a preview, and provides a clear call-to-action to run classification.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-client-side-fruit-classification-that-analyzes-the-uploaded-image-in-the-browser-and-outputs-a-predicted-fruit-type-with-a-confidence-score-without-calling-any-external-ai-ml-services",
+      "title": "Implement client-side fruit classification that analyzes the uploaded image in the browser and outputs a predicted fruit type with a confidence score, without calling any external AI/ML services.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-assess-freshness-from-the-uploaded-image-in-the-browser-and-display-a-freshness-result-e-g-fresh-ripe-overripe-spoiled-along-with-a-short-explanation-of-the-detected-visual-indicators",
+      "title": "Assess freshness from the uploaded image in the browser and display a freshness result (e.g., Fresh / Ripe / Overripe / Spoiled) along with a short explanation of the detected visual indicators.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-fruit-information-for-the-predicted-fruit-type-including-a-short-description-and-a-small-set-of-facts-e-g-common-varieties-taste-profile-storage-tips-typical-ripeness-cues",
+      "title": "Display fruit information for the predicted fruit type, including a short description and a small set of facts (e.g., common varieties, taste profile, storage tips, typical ripeness cues).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-optional-save-result-feature-that-stores-analysis-results-timestamp-predicted-fruit-confidence-freshness-rating-freshness-confidence-in-the-motoko-backend-and-provides-a-history-list-for-the-current-user",
+      "title": "Add an optional “Save result” feature that stores analysis results (timestamp, predicted fruit, confidence, freshness rating, freshness confidence) in the Motoko backend and provides a “History” list for the current user.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-visual-theme-and-layout-for-the-app-colors-typography-spacing-cards-and-states-like-loading-error-empty-with-a-distinct-style-suitable-for-a-produce-food-utility-app-avoid-blue-purple-as-the-primary-palette",
+      "title": "Apply a coherent visual theme and layout for the app (colors, typography, spacing, cards, and states like loading/error/empty) with a distinct style suitable for a produce/food utility app (avoid blue/purple as the primary palette).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-more-interactive-analysis-experience-by-showing-a-visible-step-based-progress-ui-while-an-image-is-being-analyzed-e-g-loading-image-extracting-colors-classifying-fruit-assessing-freshness-and-keep-the-ui-responsive-with-clear-loading-disabled-states",
+      "title": "Add a more interactive analysis experience by showing a visible, step-based progress UI while an image is being analyzed (e.g., “Loading image”, “Extracting colors”, “Classifying fruit”, “Assessing freshness”) and keep the UI responsive with clear loading/disabled states.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-results-area-more-interactive-by-adding-an-optional-details-how-we-decided-expandable-section-that-lets-users-inspect-the-reasoning-behind-the-freshness-and-fruit-classification-in-a-structured-way-using-the-already-available-result-fields-confidence-values-and-freshness-explanation",
+      "title": "Make the results area more interactive by adding an optional “Details” / “How we decided” expandable section that lets users inspect the reasoning behind the freshness and fruit classification in a structured way using the already-available result fields (confidence values and freshness explanation).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-history-interactive-by-allowing-users-to-click-a-saved-history-entry-to-load-it-back-into-the-main-results-view-and-fruit-info-card-as-the-active-analysis-result-without-requiring-a-new-upload-or-re-analysis",
+      "title": "Make History interactive by allowing users to click a saved history entry to load it back into the main results view (and fruit info card) as the “active” analysis result, without requiring a new upload or re-analysis.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-the-uploader-interactions-beyond-basic-drag-and-drop-by-adding-at-least-two-additional-intuitive-input-interactions-1-click-anywhere-in-the-dropzone-to-open-the-file-picker-and-2-support-pasting-an-image-from-the-clipboard-into-the-uploader-when-no-file-is-selected",
+      "title": "Improve the uploader interactions beyond basic drag-and-drop by adding at least two additional, intuitive input interactions: (1) click anywhere in the dropzone to open the file picker, and (2) support pasting an image from the clipboard into the uploader when no file is selected.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Allow users to upload fruit images for classification",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Classify uploaded fruit image to determine fruit type",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Display fruit information based on classified fruit type",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Assess and report freshness of the uploaded fruit image",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Make the app UI more interactive (enhanced interactions/feedback beyond basic upload and results)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Fruit image classification with freshness assessment from uploaded photos",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

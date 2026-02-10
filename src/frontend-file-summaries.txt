@@ -1,0 +1,16 @@
+{
+  "frontend/src/index.css": "Global styles with warm earthy OKLCH color palette (greens, oranges, browns) for a produce-themed design, including custom utilities for background patterns.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom color tokens (success, warning), soft shadows, and fade-in animations to support the warm produce aesthetic.",
+  "frontend/src/App.tsx": "Main application component managing image upload, multi-step analysis workflow with progress tracking, results display, history panel, and clickable history entry selection.",
+  "frontend/src/components/Header.tsx": "Application header with logo, branding (\"FreshCheck\"), and authentication bar.",
+  "frontend/src/components/Footer.tsx": "Footer component with copyright notice and caffeine.ai attribution link.",
+  "frontend/src/components/AuthBar.tsx": "Authentication button component using Internet Identity for login/logout functionality.",
+  "frontend/src/components/FruitImageUploader.tsx": "Enhanced drag-and-drop image uploader with click-anywhere dropzone, clipboard paste support, file validation, preview, and integrated analysis progress display.",
+  "frontend/src/components/ResultsPanel.tsx": "Displays fruit classification results and freshness assessment with color-coded badges, detailed explanations, and a keyboard-accessible collapsible \"How we decided\" section showing confidence breakdowns.",
+  "frontend/src/components/FruitInfoCard.tsx": "Shows detailed fruit information including varieties, storage tips, and ripeness indicators for the detected fruit type.",
+  "frontend/src/components/HistoryPanel.tsx": "Displays saved analysis history with clickable, keyboard-accessible entries that load into the main view, plus save/clear functionality requiring authentication.",
+  "frontend/src/lib/imageAnalysis.ts": "Client-side image analysis using canvas-based color feature extraction and heuristic classification for fruit type and freshness assessment.",
+  "frontend/src/lib/fruitInfo.ts": "Static fruit information database with descriptions, varieties, taste profiles, storage tips, and ripeness indicators for supported fruits.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend operations including fetching history, saving analysis results, clearing history, and helper function to convert backend ResultEntry to UI AnalysisResult format.",
+  "frontend/src/components/AnalysisProgress.tsx": "Multi-step progress indicator component that displays analysis stages with icons, status badges, and visual feedback for active, completed, and error states."
+}

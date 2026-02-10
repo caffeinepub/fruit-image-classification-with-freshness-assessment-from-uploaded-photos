@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        /* Warm earthy palette inspired by fresh produce */
+        --background: 0.98 0.01 85;
+        --foreground: 0.25 0.02 60;
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.02 60;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.02 60;
+        /* Primary: Fresh green like leafy vegetables */
+        --primary: 0.55 0.15 145;
+        --primary-foreground: 0.98 0.01 85;
+        /* Secondary: Warm orange like citrus */
+        --secondary: 0.88 0.08 75;
+        --secondary-foreground: 0.25 0.02 60;
+        --muted: 0.94 0.01 85;
+        --muted-foreground: 0.50 0.02 60;
+        /* Accent: Ripe peach/apricot */
+        --accent: 0.82 0.12 55;
+        --accent-foreground: 0.25 0.02 60;
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0 0;
+        --border: 0.90 0.01 85;
+        --input: 0.90 0.01 85;
+        --ring: 0.55 0.15 145;
+        --chart-1: 0.65 0.18 145;
+        --chart-2: 0.75 0.15 55;
+        --chart-3: 0.60 0.20 25;
+        --chart-4: 0.70 0.12 85;
+        --chart-5: 0.55 0.18 340;
+        /* Success: Fresh green */
+        --success: 0.60 0.16 145;
+        --success-foreground: 0.98 0.01 85;
+        /* Warning: Golden yellow */
+        --warning: 0.75 0.15 85;
+        --warning-foreground: 0.25 0.02 60;
+    }
+
+    .dark {
+        --background: 0.18 0.02 60;
+        --foreground: 0.95 0.01 85;
+        --card: 0.22 0.02 60;
+        --card-foreground: 0.95 0.01 85;
+        --popover: 0.20 0.02 60;
+        --popover-foreground: 0.95 0.01 85;
+        --primary: 0.60 0.15 145;
+        --primary-foreground: 0.98 0.01 85;
+        --secondary: 0.30 0.02 60;
+        --secondary-foreground: 0.95 0.01 85;
+        --muted: 0.28 0.02 60;
+        --muted-foreground: 0.65 0.02 85;
+        --accent: 0.40 0.08 55;
+        --accent-foreground: 0.95 0.01 85;
+        --destructive: 0.60 0.22 25;
+        --destructive-foreground: 0.98 0 0;
+        --border: 0.30 0.02 60;
+        --input: 0.30 0.02 60;
+        --ring: 0.60 0.15 145;
+        --chart-1: 0.65 0.18 145;
+        --chart-2: 0.75 0.15 55;
+        --chart-3: 0.60 0.20 25;
+        --chart-4: 0.70 0.12 85;
+        --chart-5: 0.55 0.18 340;
+        --success: 0.60 0.16 145;
+        --success-foreground: 0.98 0.01 85;
+        --warning: 0.75 0.15 85;
+        --warning-foreground: 0.25 0.02 60;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    }
+}
+
+@layer utilities {
+    .bg-pattern {
+        background-image: url('/assets/generated/fruit-pattern-tile.dim_512x512.png');
+        background-repeat: repeat;
+        background-size: 256px 256px;
+        opacity: 0.03;
+    }
+}

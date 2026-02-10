@@ -1,2 +1,3 @@
-# fruit-image-classification-with-freshness-assessment-from-uploaded-photos
-Exported from Caffeine project: Fruit image classification with freshness assessment from uploaded photos
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

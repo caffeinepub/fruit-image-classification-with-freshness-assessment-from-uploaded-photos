@@ -1,0 +1,104 @@
+{
+  "kind": "build_request",
+  "title": "Increase app interactivity with guided analysis, richer results, and clickable history",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Add a more interactive analysis experience by showing a visible, step-based progress UI while an image is being analyzed (e.g., “Loading image”, “Extracting colors”, “Classifying fruit”, “Assessing freshness”) and keep the UI responsive with clear loading/disabled states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Make this app more interactive"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When the user clicks “Analyze Fruit”, the UI shows a multi-step progress indicator until analysis completes.",
+        "The “Analyze Fruit” button remains disabled while analyzing, and the progress UI is the primary feedback (not only a spinner).",
+        "If analysis fails, the progress UI stops and an error state is shown, with the user able to try again."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Make the results area more interactive by adding an optional “Details” / “How we decided” expandable section that lets users inspect the reasoning behind the freshness and fruit classification in a structured way using the already-available result fields (confidence values and freshness explanation).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Make this app more interactive"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Results include a collapsed-by-default section that can be expanded/collapsed without re-running analysis.",
+        "The expanded section presents the existing result signals (fruit confidence, freshness confidence, freshness explanation) in a clearer breakdown than the current single paragraph.",
+        "The expanded/collapsed state has an obvious interactive affordance (button/chevron) and is keyboard accessible."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Make History interactive by allowing users to click a saved history entry to load it back into the main results view (and fruit info card) as the “active” analysis result, without requiring a new upload or re-analysis.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Make this app more interactive"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each history item is clearly clickable (hover/focus styling) and keyboard accessible.",
+        "Clicking a history item updates the main results panel and fruit info card to match the selected entry.",
+        "Loading a history item does not trigger the analyzer and does not require an uploaded image."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Improve the uploader interactions beyond basic drag-and-drop by adding at least two additional, intuitive input interactions: (1) click anywhere in the dropzone to open the file picker, and (2) support pasting an image from the clipboard into the uploader when no file is selected.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Make this app more interactive"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When no file is selected, clicking the dropzone (not only the button) opens the file chooser.",
+        "When no file is selected, pasting an image (Ctrl/Cmd+V) into the page/uploader loads it as the selected image and shows the preview.",
+        "These interactions preserve current validation rules (type and max size) and show existing validation errors when violated."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/components/ui (shadcn components are read-only and must be composed).",
+    "Do not edit immutable paths listed in SYSTEM_CONTEXT (e.g., frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "All user-facing text must be in English.",
+    "Do not introduce external services or external AI/ML calls; analysis remains fully client-side."
+  ],
+  "nonGoals": [
+    "Changing the fruit classification/freshness algorithms or adding new fruit types.",
+    "Adding real-time/multiplayer features, chat, or WebSockets.",
+    "Adding third-party authentication beyond Internet Identity."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}
